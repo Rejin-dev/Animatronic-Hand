@@ -25,9 +25,7 @@ Servo pinkyServo;
 
 // Angles for open and closed states
 const int OPEN_ANGLE = 0;
-const int OPEN_ANGLE_2 = 15;
 const int CLOSED_ANGLE = 180;
-const int CLOSED_ANGLE_2 = 160;
 
 // Variables to track current state 
 // (true = 180/closed, false = 0/open)
@@ -97,7 +95,7 @@ void loop() {
       case '2':
       case 'i': 
         indexState = !indexState;
-        indexServo.write(indexState ? CLOSED_ANGLE_2 : OPEN_ANGLE);
+        indexServo.write(indexState ? 160 : OPEN_ANGLE);
         SerialBT.println("Index toggled");
         break;
       
@@ -118,7 +116,7 @@ void loop() {
       case '5':
       case 'p': 
         pinkyState = !pinkyState;
-        pinkyServo.write(pinkyState ? CLOSED_ANGLE : OPEN_ANGLE_2);
+        pinkyServo.write(pinkyState ? CLOSED_ANGLE : 15);
         SerialBT.println("Pinky toggled");
         break;
 
