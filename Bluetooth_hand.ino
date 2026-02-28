@@ -65,7 +65,7 @@ void setup() {
   indexServo.write(0);
   middleServo.write(0);
   ringServo.write(180);
-  pinkyServo.write(175);
+  pinkyServo.write(174);
 
   // Start Bluetooth device
   SerialBT.begin("AnimatronicHand"); 
