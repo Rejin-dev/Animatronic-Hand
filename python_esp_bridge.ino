@@ -39,11 +39,11 @@ void setup() {
   pinkyServo.attach(pinkyPin);
   
   // Start all servos in the "Open" position (0 degrees)
-  thumbServo.write(0);
+  thumbServo.write(180);
   indexServo.write(0);
   middleServo.write(0);
-  ringServo.write(0);
-  pinkyServo.write(0);
+  ringServo.write(180);
+  pinkyServo.write(180);
 }
 
 void loop() {
@@ -61,11 +61,11 @@ void loop() {
     if (Serial.read() == '\n') {
       
       // Write the angles to the motors safely clamped between 0-180
-      thumbServo.write(constrain(t, 0, 180));
+      thumbServo.write(180 - constrain(t, 0, 180)); // Changed
       indexServo.write(constrain(i, 0, 180));
       middleServo.write(constrain(m, 0, 180));
-      ringServo.write(constrain(r, 0, 180));
-      pinkyServo.write(constrain(p, 0, 180));
+      ringServo.write(180 - constrain(r, 0, 180));  // Changed
+      pinkyServo.write(180 - constrain(p, 0, 180)); // Changed
     }
   }
 }
